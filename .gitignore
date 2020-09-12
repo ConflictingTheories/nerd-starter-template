@@ -1,0 +1,9 @@
+# Env
+.env
+
+# Node / Yarn
+**/node_modules
+
+# Not Database Sensitive Info (just Blank Schema)
+**/database/migrations/**
+**/database/seeds/**

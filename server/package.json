@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Kyle Derby MacInnis",
+  "homepage": "./",
   "dependencies": {
     "@blueprintjs/core": "^3.31.0",
     "@testing-library/jest-dom": "^4.2.4",

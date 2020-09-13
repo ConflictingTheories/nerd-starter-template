@@ -56,7 +56,7 @@ class Dashboard extends React.Component {
     setTimeout(
       () =>
         Notification.open({
-          title: "Notify",
+          title: "Welcome 🐙👾 - NERD",
           description: <Paragraph width={320} rows={3} />,
         }),
       ~~(Math.random() * 10000)

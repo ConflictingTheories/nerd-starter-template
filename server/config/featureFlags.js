@@ -13,6 +13,7 @@
 
 module.exports = () => {
   return {
+    // Enable /auth API Route
     ENABLE_AUTH: parseInt(process.env.ENABLE_AUTH),
   };
 };

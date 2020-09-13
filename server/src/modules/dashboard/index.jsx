@@ -19,7 +19,14 @@ import { Container, Content, Row, Col, Notification } from "rsuite";
 import "rsuite/dist/styles/rsuite-dark.css";
 
 // BLUEPRINT STYLES
-import { Button, Tabs, Tab, NonIdealState, Intent, Callout } from "@blueprintjs/core";
+import {
+  Button,
+  Tabs,
+  Tab,
+  NonIdealState,
+  Intent,
+  Callout,
+} from "@blueprintjs/core";
 import "../../../node_modules/@blueprintjs/core/lib/css/blueprint.css";
 import "../../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
 
@@ -65,28 +72,31 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Col>
-          <SideMenu
-            activeKey={"1"}
-            style={{ flex: 1, flexShrink: 1, flexGrow: 0 }}
-          />
-        </Col>
-        <Col>
-          <div style={{ display: "flex", flex: 1, flexDirection: "row" }}>
-            <Container>
-              <NavBar
-                isLogin={false}
-                renderBrand={this.renderClientSelect}
-                renderBar={() => null}
-                renderRight={() => null}
-              />
-              <Content>{this.renderDashboardTabs()}</Content>
-            </Container>
-          </div>
-          {/* MEETING sidebar */}
-        </Col>
-      </Row>
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          flexDirection: "row",
+          minHeight: "100vh",
+        }}
+      >
+        <SideMenu
+          activeKey={"1"}
+          style={{ flex: 1, flexShrink: 1, flexGrow: 0 }}
+        />
+        <div style={{ display: "flex", flex: 1, flexDirection: "row" }}>
+          <Container>
+            <NavBar
+              isLogin={false}
+              renderBrand={this.renderClientSelect}
+              renderBar={() => null}
+              renderRight={() => null}
+            />
+            <Content>{this.renderDashboardTabs()}</Content>
+          </Container>
+        </div>
+        {/* MEETING sidebar */}
+      </div>
     );
   }
 }

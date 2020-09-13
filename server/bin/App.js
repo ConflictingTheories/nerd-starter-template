@@ -65,10 +65,7 @@ app.use("/api/:ver", (req, res) => {
   }
 });
 
-// === STATIC FILES
-// React + Scripts
-app.use("/static", express.static(__dirname + "/../build"));
-// === INDEX FILE + SPA APP
+// === WEB ROUTE
 app.use("/", index);
 
 // LISTEN ON PORT

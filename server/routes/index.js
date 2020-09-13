@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - NERD Starter    	      **
+**           Sample - Wet Bat PoC     	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -26,7 +26,7 @@ module.exports = function (DB) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
 
-  router.use("*", express.static(__dirname + "/../build"));
+  router.use("*", express.static(path.join(__dirname, "../build")));
 
   return router;
 };

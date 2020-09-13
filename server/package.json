@@ -6,6 +6,8 @@
   "homepage": "/",
   "dependencies": {
     "@blueprintjs/core": "^3.31.0",
+    "@craco/craco": "^5.6.4",
+    "@testing-library/dom": "^7.24.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -13,6 +15,7 @@
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "craco-less": "^1.17.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mysql2": "^2.1.0",
@@ -29,8 +32,8 @@
     "seed": "node config/db/seed.js",
     "migrate": "node config/db/migrate.js",
     "start": "node bin/App.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

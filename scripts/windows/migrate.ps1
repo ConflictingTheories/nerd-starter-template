@@ -13,7 +13,6 @@
 
 # Read .ENV Variables
 $env:BUILD_PATH="$(Get-Location)"
-$env:DB_TYPE="mysql"
 Set-Location $env:BUILD_PATH;
 
 foreach( $line in $(Get-Content "$env:BUILD_PATH\.env")){

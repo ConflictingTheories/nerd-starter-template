@@ -21,7 +21,7 @@ import "../node_modules/@blueprintjs/core/lib/css/blueprint.css";
 import "../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 // ASSETS & APP STYLES
-import "./styles/App.css";
+import "./styles/App.less";
 
 // HELPERS
 import withSplashScreen from "./modules/utils/splashScreen";

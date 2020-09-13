@@ -34,7 +34,7 @@ import NavBar from "../../components/nav";
 import SideMenu from "../../components/menu";
 
 // ASSETS & APP STYLES
-import "../../styles/App.css";
+import "../../styles/App.less";
 
 const { Paragraph } = Placeholder
 

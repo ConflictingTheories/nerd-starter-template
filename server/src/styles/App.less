@@ -1,31 +1,34 @@
+// Colour Definitions
+@background: #282c34;
+@linkColor: #61dafb;
+@textColor: #fff;
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: @background;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: @textColor;
 }
 
 .App-link {
-  color: #61dafb;
+  color: @linkColor;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 @keyframes App-logo-spin {

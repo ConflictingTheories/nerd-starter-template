@@ -15,7 +15,7 @@ import React from "react";
 
 // ASSETS & APP STYLES
 import logo from "../../assets/logo.svg";
-import "../../styles/App.css";
+import "../../styles/App.less";
 
 // Splash Screen
 function SplashScreen() {

@@ -47,7 +47,7 @@ import "rsuite/dist/styles/rsuite-dark.css";
 
 // ASSETS & APP STYLES
 import Logo from "../../assets/logo.svg";
-import "../../styles/App.css";
+import "../../styles/App.less";
 
 import { logout } from "../../services/auth";
 

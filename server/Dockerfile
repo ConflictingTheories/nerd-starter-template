@@ -42,5 +42,5 @@ RUN yarn && yarn build
 # Expose Ports
 EXPOSE 8081
 # Start when Container Opens
-CMD [ "yarn", "start-linux" ]
+CMD [ "yarn", "start" ]
 

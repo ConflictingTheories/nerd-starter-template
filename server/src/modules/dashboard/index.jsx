@@ -15,7 +15,7 @@ import React from "react";
 import { collect } from "react-recollect";
 
 // RSuite UI Library
-import { Container, Content, Row, Col, Notification, Paragraph} from "rsuite";
+import { Container, Content, Row, Col, Notification, Placeholder} from "rsuite";
 import "rsuite/dist/styles/rsuite-dark.css";
 
 // BLUEPRINT STYLES
@@ -35,6 +35,8 @@ import SideMenu from "../../components/menu";
 
 // ASSETS & APP STYLES
 import "../../styles/App.css";
+
+const { Paragraph } = Placeholder
 
 class Dashboard extends React.Component {
   constructor(props) {

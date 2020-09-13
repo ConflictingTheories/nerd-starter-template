@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - Wet Bat PoC     	      **
+**           Sample - NERD Starter    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -10,6 +10,7 @@
 **           All Rights Reserved.             **
 ** ------------------------------------------ **
 \*                                            */
+
 const fs = require("fs");
 const path = require("path");
 
@@ -34,8 +35,21 @@ Migration.init(
 );
 
 // Run
-module.exports = (() => {
+module.exports = (async () => {
   const _DB = DB.getQueryInterface();
+
+  // create Migrations Table
+  await _DB.createTable("migrations", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    migration: DataTypes.STRING,
+    updateAat: DataTypes.DATE,
+    createdAt: DataTypes.DATE,
+  });
+
   // Run Migrations in Order of Name (Date)
   fs.readdir(path.join(__dirname, "migrations"), (err, files) => {
     if (err) console.error(err);

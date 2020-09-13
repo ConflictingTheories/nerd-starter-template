@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - Wet Bat PoC     	      **
+**           Sample - NERD Starter    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **

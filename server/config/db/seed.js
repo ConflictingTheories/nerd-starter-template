@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - Wet Bat PoC     	      **
+**           Sample - NERD Starter    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -10,6 +10,7 @@
 **           All Rights Reserved.             **
 ** ------------------------------------------ **
 \*                                            */
+
 const fs = require("fs");
 const path = require("path");
 const DB = require("../../lib/Database");
@@ -24,7 +25,7 @@ module.exports = (() => {
       files
         .sort((a, b) => b - a)
         .map(async (file) => {
-          // Run up()
+          // Run seed()
           await require(path.join(__dirname, "seeds", file))(DB).seed();
         });
   });

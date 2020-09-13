@@ -7,3 +7,4 @@
 # Not Database Sensitive Info (just Blank Schema)
 **/database/migrations/**
 **/database/seeds/**
+**/database/data

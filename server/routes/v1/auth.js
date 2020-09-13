@@ -19,7 +19,7 @@ var router = express.Router({
 module.exports = (DB) => {
 
     // GET /auth  (TODO -- Add Middleware)
-    router.get('/', (req, res) => {
+    router.get('/', (_, res) => {
         // Setup Response
         let status = {
             is_authorized: true,

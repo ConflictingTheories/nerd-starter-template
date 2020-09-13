@@ -16,17 +16,17 @@ const express = require("express");
 const path = require("path");
 const router = express.Router({ mergeParams: true });
 
-module.exports = function (DB) {
+module.exports = function (_) {
 
-  router.get("/", function (req, res) {
+  router.get("/", function (_, res) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
 
-  router.get("/index", function (req, res) {
+  router.get("/index", function (_, res) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
 
-  router.use("*", express.static(path.join(__dirname, "../build")));
+  router.use("*", express.static(__dirname, "/../build"));
 
   return router;
 };

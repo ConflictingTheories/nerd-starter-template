@@ -15,11 +15,11 @@ import React from "react";
 import { collect } from "react-recollect";
 
 // RSuite UI Library
-import { Container, Content, Row, Col } from "rsuite";
+import { Container, Content, Row, Col, Notification } from "rsuite";
 import "rsuite/dist/styles/rsuite-dark.css";
 
 // BLUEPRINT STYLES
-import { Button, Tabs, Tab, NonIdealState } from "@blueprintjs/core";
+import { Button, Tabs, Tab, NonIdealState, Intent, Callout } from "@blueprintjs/core";
 import "../../../node_modules/@blueprintjs/core/lib/css/blueprint.css";
 import "../../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css";
 
@@ -32,15 +32,36 @@ import "../../styles/App.css";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.store = props.store;
 
     this.state = {};
   }
 
-  renderDashboardTabs() {}
+  renderDashboardTabs() {
+    return (
+      <React.Fragment>
+        <Callout
+          intent={Intent.SUCCESS}
+          title={"NERD Starter Template - Loaded ✓"}
+        >
+          <Paragraph width={320} rows={3} />
+        </Callout>
+      </React.Fragment>
+    );
+  }
 
-  async componentDidMount() {}
+  async componentDidMount() {
+    // Provide "Notification"
+    setTimeout(
+      () =>
+        Notification.open({
+          title: "Notify",
+          description: <Paragraph width={320} rows={3} />,
+        }),
+      ~~(Math.random() * 10000)
+    );
+  }
 
   render() {
     return (

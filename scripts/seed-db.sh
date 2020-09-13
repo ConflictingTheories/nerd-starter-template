@@ -1,3 +1,4 @@
+#!/bin/bash
 # /*                                            *\
 # ** ------------------------------------------ **
 # **           Sample - NERD Starter    	      **
@@ -12,18 +13,12 @@
 # \*                                            */
 
 # Read .ENV Variables
-$env:BUILD_PATH="$(Get-Location)"
-Set-Location $env:BUILD_PATH;
+declare -x BUILD_PATH=$(pwd)\..
 
-foreach( $line in $(Get-Content "$env:BUILD_PATH\.env")){
-    $envData = $line.Split('=')
-    [Environment]::SetEnvironmentVariable($envData[0], $envData[1], "User")   
-}
+cd $BUILD_PATH
 
-# Compile
-docker-compose build 
+source $BUILD_PATH/.env
 
-# Deploy
-docker-compose up -d
+cd $BUILD_PATH/server
 
-Set-Location $env:BUILD_PATH;
+yarn seed

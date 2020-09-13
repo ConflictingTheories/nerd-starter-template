@@ -13,6 +13,7 @@
 
 # Read .ENV Variables
 $env:BUILD_PATH="$(Get-Location)"
+$env:DB_TYPE="mysql"
 Set-Location $env:BUILD_PATH;
 
 foreach( $line in $(Get-Content "$env:BUILD_PATH\.env")){
@@ -20,10 +21,10 @@ foreach( $line in $(Get-Content "$env:BUILD_PATH\.env")){
     [Environment]::SetEnvironmentVariable($envData[0], $envData[1], "User")   
 }
 
-# Compile
-docker-compose build 
+Set-Location $env:BUILD_PATH\server
 
-# Deploy
-docker-compose up -d
+yarn
+
+yarn seed
 
 Set-Location $env:BUILD_PATH;

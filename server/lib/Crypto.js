@@ -15,7 +15,7 @@ module.exports = (() => {
     // Random Value
     genRandomHex: (length) => {
       return crypto
-        .randomBytes(~~(length / 2)++)
+        .randomBytes(~~(length / 2) + 1)
         .toString("hex")
         .slice(0, length);
     },

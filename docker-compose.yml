@@ -41,9 +41,10 @@ services:
     depends_on:
       - "nerd_db"
     ports:
-      - "8081:8081"
+      - "${APP_PORT}:${APP_PORT}"
     environment:
-      PORT: 8081
+      PORT: ${APP_PORT}
+      DB_TYPE: ${DB_TYPE}
       DB_HOST: ${DB_HOST}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}

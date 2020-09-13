@@ -26,3 +26,6 @@ Once the deployment has finished, it should if successful, now be running and ac
         http://localhost/
 
 __Note__: Also exposed via the default port: `8081`
+
+## License
+MIT License - See License File for more details.

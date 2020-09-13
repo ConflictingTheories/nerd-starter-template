@@ -43,12 +43,17 @@ services:
     ports:
       - "${APP_PORT}:${APP_PORT}"
     environment:
-      PORT: ${APP_PORT}
+      APP_PORT: ${APP_PORT}
+      API_HOST: ${API_HOST}
+      API_VERSION: ${API_VERSION}
+      API_ROUTE_PATH: ${API_ROUTE_PATH}
       DB_TYPE: ${DB_TYPE}
       DB_HOST: ${DB_HOST}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       DB_NAME: ${DB_NAME}
+      PUBLIC_URL: ${PUBLIC_URL}
+      ENABLE_AUTH: ${ENABLE_AUTH}
 # Network to Communicate
 networks:
   default:

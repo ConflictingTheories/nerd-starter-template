@@ -15,7 +15,7 @@ import React from "react";
 import { collect } from "react-recollect";
 
 // RSuite UI Library
-import { Container, Content, Row, Col, Notification } from "rsuite";
+import { Container, Content, Row, Col, Notification, Paragraph} from "rsuite";
 import "rsuite/dist/styles/rsuite-dark.css";
 
 // BLUEPRINT STYLES

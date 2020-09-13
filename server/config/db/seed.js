@@ -10,23 +10,22 @@
 **           All Rights Reserved.             **
 ** ------------------------------------------ **
 \*                                            */
-
-const cryptoUtils = require("../../lib/Crypto");
+const fs = require("fs");
+const path = require("path");
 const DB = require("../../lib/Database");
 
-// Models
-const User = require("../../models/User")(DB);
-
-// Seed DB
+// Run
 module.exports = (() => {
-  (async () => {
-    await DB.sync();
-    const saltedPass = cryptoUtils.saltHashPassword("password");
-    const jane = await User.create({
-      username: "janedoe",
-      password: saltedPass.passwordHash,
-      salt: saltedPass.salt,
-    });
-    console.log(jane.toJSON());
-  })();
+  const _DB = DB.getQueryInterface();
+  // Run Migrations in Order of Name (Date)
+  fs.readdir(path.join(__dirname, "seeds"), (err, files) => {
+    if (err) console.error(err);
+    else
+      files
+        .sort((a, b) => b - a)
+        .map(async (file) => {
+          // Run up()
+          await require(path.join(__dirname, "seeds", file))(DB).seed();
+        });
+  });
 })();

@@ -13,12 +13,16 @@ First, set your configurations for your environment variables in the `.env` file
 ### Windows
 Please run the following:
 
-        > . scripts/start.ps1
+        > . scripts/windows/start.ps1
+        > . scripts/windows/migrate.ps1
+        > . scripts/windows/seed.ps1
 
 ### Linux / Mac
 Please run the following:
 
-        $ bash scripts/start.sh
+        $ bash scripts/nix/start.sh
+        $ bash scripts/nix/migrate.sh
+        $ bash scripts/nix/seed.sh
 
 ## Usage
 Once the deployment has finished, it should if successful, now be running and accessible from your Browser:

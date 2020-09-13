@@ -11,19 +11,20 @@
 ** ------------------------------------------ **
 \*                                            */
 
-const { Model, DataTypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 
-// Pass in DB Handler Instance
 module.exports = (DB) => {
-  class User extends Model {}
-  User.init(
-    {
-      id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-      username: DataTypes.STRING,
-      password: DataTypes.STRING,
-      salt: DataTypes.STRING,
+  const _DB = DB.getQueryInterface();
+  return {
+    seed: async () => {
+      await DB.sync();
+      const saltedPass = cryptoUtils.saltHashPassword("password");
+      const jane = await User.create({
+        username: "janedoe",
+        password: saltedPass.passwordHash,
+        salt: saltedPass.salt,
+      });
+      console.log(jane.toJSON());
     },
-    { sequelize: DB, modelName: "user" }
-  );
-  return User;
+  };
 };

@@ -19,6 +19,5 @@ cd $BUILD_PATH
 
 source $BUILD_PATH/.env
 
-cd $BUILD_PATH/server
-
-yarn migrate
+# Compile
+docker-compose build 

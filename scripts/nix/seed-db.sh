@@ -1,7 +1,7 @@
 #!/bin/bash
 # /*                                            *\
 # ** ------------------------------------------ **
-# **           Sample - NERD Starter    	      **
+# **           Sample - Weather SPA    	      **
 # ** ------------------------------------------ **
 # **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 # **                                            **

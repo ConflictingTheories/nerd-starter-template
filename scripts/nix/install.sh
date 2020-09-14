@@ -19,6 +19,15 @@ cd $BUILD_PATH
 
 source $BUILD_PATH/.env
 
-cd $BUILD_PATH/server
+# Compile
+docker-compose build 
 
+# Deploy
+docker-compose up -d
+
+# Migrate DB
+yarn
 yarn migrate
+
+# Seed DB
+yarn seed

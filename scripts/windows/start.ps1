@@ -1,6 +1,6 @@
 # /*                                            *\
 # ** ------------------------------------------ **
-# **           Sample - NERD Starter    	      **
+# **           Sample - Weather SPA    	      **
 # ** ------------------------------------------ **
 # **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 # **                                            **
@@ -17,11 +17,9 @@ Set-Location $env:BUILD_PATH;
 
 foreach( $line in $(Get-Content "$env:BUILD_PATH\.env")){
     $envData = $line.Split('=')
-    [Environment]::SetEnvironmentVariable($envData[0], $envData[1], "User")   
+    Write-Output "$($envData.get(0))=$($envData.get(1))"
+    [Environment]::SetEnvironmentVariable($envData.get(0), $envData.get(1), "User")   
 }
-
-# Compile
-docker-compose build 
 
 # Deploy
 docker-compose up -d

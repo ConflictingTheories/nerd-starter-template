@@ -28,7 +28,7 @@ Migration.init(
       primaryKey: true,
     },
     migration: DataTypes.STRING,
-    updateAat: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
     createdAt: DataTypes.DATE,
   },
   { sequelize: DB, modelName: "migration" }
@@ -46,7 +46,7 @@ module.exports = (async () => {
       primaryKey: true,
     },
     migration: DataTypes.STRING,
-    updateAat: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
     createdAt: DataTypes.DATE,
   });
 
@@ -62,7 +62,7 @@ module.exports = (async () => {
           // Store Migration in DB
           await Migration.create({
             migration: file,
-            updateAat: new Date(),
+            updatedAt: new Date(),
             createdAt: new Date(),
           });
         });

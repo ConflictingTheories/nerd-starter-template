@@ -66,14 +66,14 @@ app.use("/api/:ver", (req, res) => {
 });
 
 // === STATIC Files
-app.use("/static", express.static(__dirname + "/../build/static"));
+app.use("/static", express.static(__dirname + "/../build"));
 
 // === WEB ROUTE
-app.use("/", index);
+app.use("*", index);
 
 // LISTEN ON PORT
 server.listen(process.env.APP_PORT, () => {
-  console.log("NERD App is now live on Port: ", process.env.APP_PORT);
+  console.log("Weather App is now live on Port: ", process.env.APP_PORT);
 });
 
 // FALLBACK FOR PORT

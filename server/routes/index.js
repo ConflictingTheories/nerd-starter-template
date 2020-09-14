@@ -18,6 +18,8 @@ const router = express.Router({ mergeParams: true });
 
 module.exports = function (_) {
 
+  router.use("*", express.static(path.join(__dirname,"../build")));
+
   router.get("/", function (_, res) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
@@ -25,8 +27,6 @@ module.exports = function (_) {
   router.get("/index", function (_, res) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
-
-  router.use("*", express.static(path.join(__dirname,"../build")));
 
   return router;
 };

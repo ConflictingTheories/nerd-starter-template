@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - NERD Starter    	      **
+**           Sample - Weather SPA    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -11,14 +11,14 @@
 ** ------------------------------------------ **
 \*                                            */
 
-const { DataTypes } = require("sequelize");
-
 module.exports = (DB) => {
-  const _DB = DB.getQueryInterface();
+  const { saltHashPassword } = require("../../../lib/Crypto");
+  const User = require("../../../models/User")(DB);
+  // Seed Users Table
   return {
     seed: async () => {
       await DB.sync();
-      const saltedPass = cryptoUtils.saltHashPassword("password");
+      const saltedPass = saltHashPassword("password");
       const jane = await User.create({
         username: "janedoe",
         password: saltedPass.passwordHash,

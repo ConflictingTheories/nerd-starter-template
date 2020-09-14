@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - NERD Starter    	      **
+**           Sample - Weather SPA    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -20,10 +20,8 @@ const FF = require("../../config/featureFlags");
 
 // Export Route
 module.exports = (DB) => {
-
   // API Routes (V1)
   if (FF.ENABLE_AUTH) router.use("/auth", require("./auth")(DB));
-
   // Return Router
   return router;
 };

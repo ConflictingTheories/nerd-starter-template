@@ -73,7 +73,7 @@ app.use("*", index);
 
 // LISTEN ON PORT
 server.listen(process.env.APP_PORT, () => {
-  console.log("Weather App is now live on Port: ", process.env.APP_PORT);
+  console.log("NERD is now live on Port: ", process.env.APP_PORT);
 });
 
 // FALLBACK FOR PORT

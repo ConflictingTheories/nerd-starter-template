@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - NERD Starter    	      **
+**           Sample - Weather SPA    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -20,11 +20,11 @@ module.exports = function (_) {
 
   router.use("*", express.static(path.join(__dirname,"../build")));
 
-  router.get("/", function (_, res) {
+  router.use("/", function (_, res) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
 
-  router.get("/index", function (_, res) {
+  router.use("/index", function (_, res) {
     res.sendFile(path.join(__dirname, "../build/", "index.html"));
   });
 

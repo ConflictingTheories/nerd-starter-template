@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - NERD Starter    	      **
+**           Sample - Weather SPA    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -18,7 +18,7 @@ var router = express.Router({
 
 module.exports = (DB) => {
 
-    // GET /auth  (TODO -- Add Middleware)
+    // GET /auth  (TODO -- Add Middleware / Actual Check )
     router.get('/', (_, res) => {
         // Setup Response
         let status = {

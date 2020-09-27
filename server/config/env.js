@@ -37,5 +37,4 @@ module.exports = {
     STORAGE_ROOT: process.env.STORAGE_ROOT,
     // S3 Storage Options
     S3_REGION: process.env.S3_REGION,
-    S3_BUCKET: process.env.S3_BUCKET    
 };

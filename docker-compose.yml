@@ -56,6 +56,9 @@ services:
       ENABLE_AUTH: ${ENABLE_AUTH}
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      STORAGE_TYPE: ${STORAGE_TYPE}
+      STORAGE_ROOT: ${STORAGE_ROOT}
+      S3_REGION: ${S3_REGION}
 # Network to Communicate
 networks:
   default:

@@ -54,6 +54,8 @@ services:
       DB_NAME: ${DB_NAME}
       PUBLIC_URL: ${PUBLIC_URL}
       ENABLE_AUTH: ${ENABLE_AUTH}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
 # Network to Communicate
 networks:
   default:

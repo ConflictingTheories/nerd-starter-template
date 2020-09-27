@@ -12,13 +12,14 @@
 \*                                            */
 
 const { Model, DataTypes } = require("sequelize");
-
+const DB = require("../lib/database");
 // Pass in DB Handler Instance
-module.exports = (DB) => {
+module.exports = (() => {
   class User extends Model {}
   User.init(
     {
       id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+      name: DataTypes.STRING,
       username: DataTypes.STRING,
       password: DataTypes.STRING,
       salt: DataTypes.STRING,
@@ -26,4 +27,4 @@ module.exports = (DB) => {
     { sequelize: DB, modelName: "user" }
   );
   return User;
-};
+})();

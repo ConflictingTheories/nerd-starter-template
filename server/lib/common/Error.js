@@ -14,7 +14,7 @@
 // Main Patterns Object
 const Error = function() {
     
-    var errorStack = [];
+    let errorStack = [];
     
     // Add Error To Stack
     function pushError(err) {

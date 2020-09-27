@@ -16,7 +16,7 @@ const path = require("path");
 
 const { Model, DataTypes } = require("sequelize");
 
-const DB = require("../../lib/Database");
+const DB = require("../../lib/database");
 
 // Migration DB Model
 class Migration extends Model {}
@@ -37,34 +37,60 @@ Migration.init(
 // Run
 module.exports = (async () => {
   const _DB = DB.getQueryInterface();
-
+  // Read Commandline Arguments
+  const direction = process.argv.slice(2)[0] == "down" ? "down" : "up";
   // create Migrations Table
-  await _DB.createTable("migrations", {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    migration: DataTypes.STRING,
-    updatedAt: DataTypes.DATE,
-    createdAt: DataTypes.DATE,
-  });
-
-  // Run Migrations in Order of Name (Date)
-  fs.readdir(path.join(__dirname, "migrations"), (err, files) => {
-    if (err) console.error(err);
-    else
-      files
-        .sort((a, b) => b - a)
-        .map(async (file) => {
-          // Run up()
-          await require(path.join(__dirname, "migrations", file))(DB).up();
-          // Store Migration in DB
-          await Migration.create({
-            migration: file,
-            updatedAt: new Date(),
-            createdAt: new Date(),
-          });
-        });
-  });
+  await _DB
+    .createTable("migrations", {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      migration: DataTypes.STRING,
+      updatedAt: DataTypes.DATE,
+      createdAt: DataTypes.DATE,
+    })
+    .then(() => {
+      // Run Migrations in Order of Name (Date)
+      fs.readdir(path.join(__dirname, "migrations"), (err, files) => {
+        if (err) console.error(err);
+        else {
+          // Sort
+          const orderedFiles =
+            direction === "up" ? files.sort() : files.sort().reverse();
+          console.log("MIGRATIONS::", orderedFiles);
+          // Run
+          orderedFiles.reduce(async (_, file) => {
+            try {
+              if (_) {
+                await _;
+              }
+              console.log("--> Migrating::", file, " :: ", direction);
+              // Store Migration in DB
+              return Migration.findOne({
+                where: { migration: file },
+              }).then(async (done) => {
+                if (direction === "up" && !done) {
+                  await require(path.join(__dirname, "migrations", file)).up();
+                  await Migration.create({
+                    migration: file,
+                    updatedAt: new Date(),
+                    createdAt: new Date(),
+                  });
+                }
+                // Delete Migration if Rolldown
+                if (direction === "down" && done) {
+                  await require(path.join(__dirname, "migrations", file)).down();
+                  await Migration.destroy({ where: { migration: file } });
+                }
+              });
+            } catch (e) {
+              console.error(e);
+            }
+            console.log("--> Done::", file);
+          }, false);
+        }
+      });
+    });
 })();

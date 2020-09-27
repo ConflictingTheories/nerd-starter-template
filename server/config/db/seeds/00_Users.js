@@ -1,6 +1,6 @@
 /*                                            *\
 ** ------------------------------------------ **
-**           Sample - Weather SPA    	      **
+**           Sample - NERD Starter    	      **
 ** ------------------------------------------ **
 **  Copyright (c) 2020 - Kyle Derby MacInnis  **
 **                                            **
@@ -11,20 +11,28 @@
 ** ------------------------------------------ **
 \*                                            */
 
-module.exports = (DB) => {
-  const { saltHashPassword } = require("../../../lib/Crypto");
-  const User = require("../../../models/User")(DB);
+module.exports = (() => {
+  const { saltHashPassword } = require("../../../lib/common/Crypto");
+  const User = require("../../../models/User");
+  const DB = require("../../../lib/database");
   // Seed Users Table
   return {
     seed: async () => {
-      await DB.sync();
-      const saltedPass = saltHashPassword("password");
-      const jane = await User.create({
-        username: "janedoe",
-        password: saltedPass.passwordHash,
-        salt: saltedPass.salt,
-      });
-      console.log(jane.toJSON());
+      try {
+        await DB.sync();
+        // User
+        const name = "Administrator";
+        const username = "admin@example.com";
+        const saltedPass = saltHashPassword("password");
+        const admin = await User.create({
+          username: username,
+          passwordHash: saltedPass.passwordHash,
+          salt: saltedPass.salt,
+          name: name,
+        });
+      } catch (err) {
+        console.error(err);
+      }
     },
   };
-};
+})();

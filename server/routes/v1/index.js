@@ -19,9 +19,9 @@ const router = express.Router({ mergeParams: true });
 const FF = require("../../config/featureFlags");
 
 // Export Route
-module.exports = (DB) => {
+module.exports = (() => {
   // API Routes (V1)
-  if (FF.ENABLE_AUTH) router.use("/auth", require("./auth")(DB));
-  // Return Router
+  if (FF.ENABLE_AUTH) router.use("/auth", require("./auth"));
+
   return router;
-};
+})();

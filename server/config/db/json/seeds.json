@@ -1,0 +1,40 @@
+{
+  "tours": [
+    {
+      "name": "A Tour of China",
+      "destination": "China",
+      "description": "Explore the Great Wall and Forbidden City!"
+    },
+    {
+      "name": "A Tour of Nevada",
+      "destination": "Nevada Desert",
+      "description": "Drink! Gamble! Shoot! *Wink*"
+    }
+  ],
+  "firstNames": [
+    "Harry",
+    "Jim",
+    "Moe",
+    "Molly",
+    "Ferris",
+    "John",
+    "Jane",
+    "Philippe",
+    "Marco",
+    "Jared",
+    "Shannon"
+  ],
+  "lastNames": [
+    "Potsworth",
+    "Johnson",
+    "Flanders",
+    "Brown",
+    "Dawson",
+    "Thompson",
+    "Lee",
+    "Ruiz",
+    "Green",
+    "Amlin",
+    "Barrager"
+  ]
+}

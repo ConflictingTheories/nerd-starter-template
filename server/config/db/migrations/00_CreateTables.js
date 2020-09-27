@@ -13,33 +13,23 @@
 
 const { DataTypes } = require("sequelize");
 
-module.exports = (DB) => {
-  const _DB = DB.getQueryInterface();
+module.exports = (() => {
+  // Models
+  const User = require("../../../models/User");
+  const migrations = [
+    User,
+  ];
+
   return {
-    up: async () => {
-      await _DB.createTable("users", {
-        id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          autoIncrement: true,
-          primaryKey: true,
-        },
-        username: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        password: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        salt: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-      });
+    up: () => {
+      return migrations.reduce(async (_, x) => {
+        return await x.sync();
+      }, null);
     },
-    down: async () => {
-      await _DB.deleteTable("users");
+    down: () => {
+      return migrations.reverse().reduce(async (_, x) => {
+        return await x.drop({ cascade: true });
+      }, null);
     },
   };
-};
+})();

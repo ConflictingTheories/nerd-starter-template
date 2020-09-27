@@ -16,7 +16,7 @@ var router = express.Router({
     mergeParams: true
 });
 
-module.exports = (DB) => {
+module.exports = (() => {
 
     // GET /auth  (TODO -- Add Middleware / Actual Check )
     router.get('/', (_, res) => {
@@ -43,4 +43,4 @@ module.exports = (DB) => {
     });
 
     return router;
-}
+})()

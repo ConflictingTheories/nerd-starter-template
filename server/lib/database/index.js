@@ -12,17 +12,29 @@
 \*                                            */
 
 const Sequelize = require("sequelize");
-
-console.log(process.env.DB_TYPE);
-
+console.log(process.env.DB_TYPE, process.env.DB_PORT);
 // Connection to Database (SQL ORM)
-const DB = new Sequelize({
-  database: process.env.DB_NAME,
-  username: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  port: 3306,
-  password: process.env.DB_PASS,
-  dialect: JSON.parse(process.env.DB_TYPE),
-});
+class Database {
+  static instance = null;
+  constructor() {
+    if (this.instance) return this.instance;
+    else {
+      this.instance = new Sequelize({
+        database: process.env.DB_NAME,
+        username: process.env.DB_USER,
+        host: process.env.DB_HOST,
+        port: parseInt(process.env.DB_PORT),
+        password: process.env.DB_PASS,
+        dialect: process.env.DB_TYPE,
+        pool: {
+          max: 30,
+        },
+        connectTimeout: 30000,
+        acquireTime: 60000,
+      });
+      return this.instance;
+    }
+  }
+}
 
-module.exports = DB;
+module.exports = new Database();

@@ -1,4 +1,7 @@
 # NERD - Nginx, ExpressJS, ReactJS, Docker
+
+![NERD](nerd.png)
+
 NERD is a starter template to help bootstrap projects using a stack built with those technologies. In addition - this start template includes a Database reference as well and used MySQL as its example - however, this can quite easily be changed as it uses an ORM. 
 
 ## Dependencies (to deploy)
